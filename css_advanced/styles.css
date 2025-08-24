@@ -1,51 +1,43 @@
-/* CSS Reset and Base Styles */
+/* Reset some default styles */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body, h1, h2, h3, h4, p, ul {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Body and global font */
 body {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   background: #fff;
   color: #fff;
+  line-height: 1.5;
 }
 
-/* Header and Navigation */
+/* Header styles */
 header {
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 2;
-  padding: 40px 0 0 0;
 }
 
-nav {
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: 0 auto;
+  padding: 40px 80px 0 80px;
 }
 
-nav img {
+header img {
   height: 40px;
 }
 
-nav ul {
+header ul {
   display: flex;
   gap: 40px;
   list-style: none;
 }
 
-nav ul li a {
+header ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
@@ -54,62 +46,72 @@ nav ul li a {
   transition: color 0.2s;
 }
 
-nav ul li a:hover {
+header ul li a:hover {
   color: #c271ff;
 }
 
-/* Banner/Hero Section */
+/* Banner section with background image and overlay */
 main > section:first-of-type {
-  min-height: 650px;
-  background: linear-gradient(120deg, #071629 60%, #2d3956 100%);
+  min-height: 700px;
+  background: 
+    linear-gradient(120deg, rgba(41,48,61,0.95) 60%, rgba(41,48,61,0.7) 100%),
+    url('images/Object.png') center/cover no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-start;
   position: relative;
-  padding-top: 120px;
+  padding-top: 100px;
   padding-bottom: 60px;
 }
 
+/* Banner main content */
 main > section:first-of-type > div:first-child {
-  text-align: center;
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
-main h1 {
-  font-size: 4rem;
+main > section:first-of-type h1 {
+  font-size: 64px;
   font-weight: 700;
   margin-bottom: 24px;
   letter-spacing: 2px;
 }
 
+main > section:first-of-type div > div {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
 main > section:first-of-type span {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: 600;
-  color: #c271ff;
   letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 main > section:first-of-type button {
-  margin-top: 32px;
-  padding: 16px 40px;
   background: #c271ff;
   color: #fff;
   border: none;
-  border-radius: 30px;
-  font-size: 1.1rem;
+  border-radius: 22px;
+  padding: 14px 40px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  margin-top: 16px;
   transition: background 0.2s;
 }
 
-main > section:first_of_type button:hover {
+main > section:first-of-type button:hover {
   background: #a259d9;
 }
 
-/* "Learn from the pros" Block */
+/* "Learn from the pros" row */
 main > section:first-of-type > div:last-child {
   display: flex;
   flex-direction: column;
@@ -118,46 +120,89 @@ main > section:first-of-type > div:last-child {
 
 main > section:first-of-type h2 {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 32px;
   font-weight: 400;
   margin-bottom: 40px;
   letter-spacing: 1px;
 }
 
-main > section:first-of_type > div:last-child > div {
+main > section:first-of-type > div:last-child > div {
   display: flex;
   gap: 60px;
 }
 
-main > section:first_of_type > div:last-child > div > div {
+main > section:first-of-type > div:last-child > div > div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-main > section:first-of_type > div:last-child img {
+main > section:first-of-type > div:last-child img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 4px solid #c271ff;
-  object-fit: cover;
+  border: 4px solid #fff;
   margin-bottom: 18px;
+  object-fit: cover;
   background: #fff;
 }
 
-main > section:first_of_type > div:last-child h3 {
-  color: #fff;
-  font-size: 1.1rem;
+main > section:first-of-type > div:last-child h3 {
+  font-size: 18px;
   font-weight: 700;
+  color: #fff;
   margin-bottom: 6px;
 }
 
-main > section:first_of_type > div:last-child p {
-  color: #fff;
-  font-size: 0.95rem;
-  opacity: 0.8;
+main > section:first-of-type > div:last-child p {
+  font-size: 14px;
+  color: #c271ff;
+  font-style: italic;
   text-align: center;
-  max-width: 140px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  header nav {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px 0 20px;
+  }
+  main > section:first-of-type > div:last-child > div {
+    flex-direction: column;
+    gap: 30px;
+  }
+  main > section:first-of-type {
+    padding: 60px 10px 40px 10px;
+  }
+  main > section:first-of-type h1 {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  main > section:first-of-type span {
+    font-size: 16px;
+  }
+  main > section:first_of_type button {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+  main > section:first-of_type h2 {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  main > section:first-of_type > div:last-child {
+    margin-bottom: 40px;
+  }
+  main > section:first-of_type > div:last-child img {
+    width: 100px;
+    height: 100px;
+  }
+  main > section:first_of_type > div:last-child h3 {
+    font-size: 16px;
+  }
+  main > section:first_of_type > div:last-child p {
+    font-size: 13px;
+  }
 }
 
 /* Quote/Testimonial Section */
